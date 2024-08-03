@@ -13,6 +13,11 @@
 - Create sign up user account
 - imlement Sign In user API
 - Created redux store with user slice
+- Implemented Sign out feature
+- Update profile
+- BugFix: Sign up user displayName and profile picture update
+- BugFix: if the user is not logged in Redirect to Login page from "/browse" page and vice versa
+- Unsubscribed to the onAuthStateChanged callback function
 
 # Features
 

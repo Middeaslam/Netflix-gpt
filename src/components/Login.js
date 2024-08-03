@@ -10,10 +10,8 @@ import { addUser } from "../utils/userSlice";
 import { auth } from "../utils/firebase";
 import { checkValidData } from "../utils/validate";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
@@ -58,7 +56,6 @@ const Login = () => {
                   photoURL
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               const errorCode = error.code;
@@ -70,7 +67,6 @@ const Login = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorCode + "-" + errorMessage);
-          navigate("/");
         });
     } else {
       //Sign In logic
@@ -81,13 +77,11 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorCode + "-" + errorMessage);
-          navigate("/");
         });
     }
   };
