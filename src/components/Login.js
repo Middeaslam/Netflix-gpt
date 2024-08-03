@@ -6,6 +6,7 @@ import {
 } from "firebase/auth";
 
 import Header from "./Header";
+import { USER_AVATAR } from "../utils/constants";
 import { addUser } from "../utils/userSlice";
 import { auth } from "../utils/firebase";
 import { checkValidData } from "../utils/validate";
@@ -43,8 +44,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://media.licdn.com/dms/image/C4D03AQF7MuFseIkWRA/profile-displayphoto-shrink_800_800/0/1652591607717?e=1727913600&v=beta&t=k9Mz1hQOtpFLcSTXVgF5Aj81yxho1R1mPW3dfJLIqlQ"
+            photoURL: USER_AVATAR
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
